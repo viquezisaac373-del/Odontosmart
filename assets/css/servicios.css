@@ -1,0 +1,113 @@
+
+/* Estilos para la página de servicios y productos */
+    /* servicios.css */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #f5f9fc, #e0f7fa);
+    color: #333;
+}
+
+.content {
+    margin-left: 220px; /* mismo ancho del sidebar */
+    padding: 20px;
+}
+
+.seccion {
+    background: linear-gradient(to bottom right, #f5f9fc, #8ef2ff);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.categoria-titulo {
+    background: #D5E7F2;
+    padding: 15px;
+    margin: 25px 0 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    border-left: 4px solid #69B7BF;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #69B7BF;
+    color: #fff;
+}
+
+tr:hover {
+    background: #f9f9f9;
+}
+
+.precio {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.sin-productos {
+    padding: 20px;
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.form-agregar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.agregar-btn {
+    background-color: #152FBF;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.agregar-btn:hover {
+    background-color: #0d1e80;
+}
+
+.btn-ver-carrito {
+    background-color: #152FBF;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-ver-carrito:hover {
+    transform: scale(1.05);
+}
+
+.success-msg {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.error-msg {
+    color: #dc3545;
+    font-weight: bold;
+}
