@@ -32,77 +32,71 @@ if (!empty($_SESSION['user'])) {
     <link rel="stylesheet" href="../assets/css/iniciar_sesion.css">
 </head>
 
-<body>
+<body class="login-page">
 
     <!-- Logo decorativo -->
     <img src="../assets/img/odonto.png" class="logo-fixed" alt="OdontoSmart">
 
-    <div class="card shadow p-4">
-        <h2 class="text-center mb-4"><strong>Iniciar sesión</strong></h2>
+    <main class="container min-vh-100 d-flex align-items-center justify-content-center py-4">
+        <div class="row w-100 justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
 
-        <!-- Mensajes -->
-        <?php if (!empty($_GET['error'])): ?>
-            <div class="alert alert-danger text-center" role="alert">
-                <?= htmlspecialchars($_GET['error']) ?>
+                <div class="card shadow p-3 p-sm-4">
+                    <h2 class="text-center mb-4 fs-3"><strong>Iniciar sesión</strong></h2>
+
+                    <!-- Mensajes (igual que antes) -->
+                    <?php if (!empty($_GET['error'])): ?>
+                        <div class="alert alert-danger text-center" role="alert">
+                            <?= htmlspecialchars($_GET['error']) ?>
+                        </div>
+                    <?php elseif (!empty($_GET['info'])): ?>
+                        <div class="alert alert-success text-center" role="alert">
+                            <?= htmlspecialchars($_GET['info']) ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($_GET['reset']) && $_GET['reset'] == '1'): ?>
+                        <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                            <strong>Contraseña actualizada correctamente.</strong> Ya puedes iniciar sesión.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        </div>
+                    <?php endif; ?>
+
+                    <!-- Formulario (igual que antes) -->
+                    <form method="POST" action="autenticar.php">
+                        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-control form-control-lg"
+                                   required autocomplete="username">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" id="password" name="password" class="form-control form-control-lg"
+                                   required autocomplete="current-password">
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-lg w-100">
+                            <strong>Iniciar sesión</strong>
+                        </button>
+                    </form>
+
+                    <!-- Enlaces -->
+                    <div class="text-center mt-3">
+                        <a href="../modulos/usuarios/crear_usuarios.php">Crear cuenta</a><br>
+                        <a href="olvidar_contrasena.php">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <div class="mt-3">
+                        <a href="../index.php" class="btn btn-success btn-sm">Inicio</a>
+                    </div>
+                </div>
+
             </div>
-        <?php elseif (!empty($_GET['info'])): ?>
-            <div class="alert alert-success text-center" role="alert">
-                <?= htmlspecialchars($_GET['info']) ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if (!empty($_GET['reset']) && $_GET['reset'] == '1'): ?>
-            <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-                <strong>Contraseña actualizada correctamente.</strong> Ya puedes iniciar sesión.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-            </div>
-        <?php endif; ?>
-
-        <!-- Formulario -->
-        <form method="POST" action="autenticar.php">
-            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
-
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    class="form-control"
-                    required
-                    autocomplete="username"
-                >
-            </div>
-
-            <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    class="form-control"
-                    required
-                    autocomplete="current-password"
-                >
-            </div>
-
-            <button type="submit" class="btn btn-success w-100">
-                <strong>Iniciar sesión</strong>
-            </button>
-        </form>
-
-        <!-- Enlaces -->
-        <div class="text-center mt-3">
-            <a href="../modulos/usuarios/crear_usuarios.php">Crear cuenta</a><br>
-            <a href="olvidar_contrasena.php">¿Olvidaste tu contraseña?</a>
         </div>
-
-        <div class="mt-3">
-            <a href="../index.php" class="btn btn-success btn-sm" style="width: 70px;">
-                Inicio
-            </a>
-        </div>
-    </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
